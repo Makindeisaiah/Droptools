@@ -3,6 +3,7 @@ import Hero from './Hero.jsx';
 import Services from './Services.jsx';
 import FeatureShowcase from './FeatureShowcase.jsx';
 import Pricing from './Pricing.jsx';
+import FAQ from './FAQ.jsx';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Services />
       <FeatureShowcase />
       <Pricing />
+      <FAQ />
     </div>
   );
 }
