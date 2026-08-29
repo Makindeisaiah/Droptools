@@ -1,0 +1,6 @@
+{
+  "name": "DropTools Hero",
+  "description": "DropTools landing page hero section with purple accent navigation and call-to-actions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
