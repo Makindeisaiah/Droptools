@@ -1,6 +1,6 @@
 {
   "name": "DropTools Hero",
-  "description": "DropTools landing page with hero, services grid, and alternating feature showcase sections.",
+  "description": "DropTools landing page with hero, services grid, feature showcase, and pricing plans.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
