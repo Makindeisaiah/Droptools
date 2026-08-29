@@ -1,5 +1,6 @@
 import React from 'react';
 import { BookOpen, TrendingUp, Archive } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Services Component for DropTools
@@ -34,34 +35,47 @@ export default function Services() {
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
         
-        {/* 1. Small centered label */}
-        <span 
-          id="services-subheading-label"
-          className="text-base sm:text-lg font-bold text-gray-950 tracking-normal mb-3"
+        {/* Section Heading with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="flex flex-col items-center text-center"
         >
-          Basic Pack
-        </span>
+          {/* 1. Small centered label */}
+          <span 
+            id="services-subheading-label"
+            className="text-base sm:text-lg font-bold text-gray-950 tracking-normal mb-3"
+          >
+            Basic Pack
+          </span>
 
-        {/* 2. Large centered heading */}
-        <h2 
-          id="services-heading"
-          className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-tight max-w-3xl mb-14 sm:mb-16"
-        >
-          <span>Services Included Has </span>
-          <span className="text-[#9D7BFF]">Every Plan</span>
-        </h2>
+          {/* 2. Large centered heading */}
+          <h2 
+            id="services-heading"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-tight max-w-3xl mb-14 sm:mb-16"
+          >
+            <span>Services Included Has </span>
+            <span className="text-[#9D7BFF]">Every Plan</span>
+          </h2>
+        </motion.div>
 
-        {/* 3. 3-column grid of cards */}
+        {/* 3. 3-column grid of cards with staggered animations */}
         <div 
           id="services-grid" 
           className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full text-left"
         >
-          {serviceCards.map((card) => {
+          {serviceCards.map((card, index) => {
             const IconComponent = card.icon;
             return (
-              <div
+              <motion.div
                 key={card.id}
                 id={card.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
                 className="bg-[#F3EFFF] rounded-2xl p-8 sm:p-9 flex flex-col justify-between transition-all duration-200 hover:shadow-md group"
               >
                 <div>
@@ -90,7 +104,7 @@ export default function Services() {
                     Learn More
                   </a>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

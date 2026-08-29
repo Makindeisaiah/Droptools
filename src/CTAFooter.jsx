@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * CTAFooter Component for DropTools
@@ -22,8 +23,12 @@ export default function CTAFooter() {
       {/* 1. Large Subscription Banner Card */}
       <section id="cta-banner-section" className="w-full bg-white pt-10 pb-20 sm:pb-28 px-6 sm:px-12">
         <div className="max-w-6xl mx-auto">
-          <div 
+          <motion.div 
             id="cta-banner-card"
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
             className="w-full bg-[#A78BFA] rounded-2xl sm:rounded-3xl py-14 sm:py-20 px-6 sm:px-12 text-center text-white flex flex-col items-center justify-center shadow-lg relative overflow-hidden"
           >
             {/* Heading with quotes */}
@@ -70,17 +75,19 @@ export default function CTAFooter() {
                 </div>
 
                 {/* Dark Purple Button */}
-                <button
+                <motion.button
                   id="btn-subscribe-now"
                   type="submit"
-                  className="w-full sm:w-auto bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold px-7 sm:px-8 py-3.5 rounded-xl text-sm sm:text-base whitespace-nowrap shadow-md hover:shadow-lg transition-all duration-150 active:scale-[0.98] cursor-pointer"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold px-7 sm:px-8 py-3.5 rounded-xl text-sm sm:text-base whitespace-nowrap shadow-md hover:shadow-lg transition-all duration-150 cursor-pointer"
                 >
                   Subscribe Now
-                </button>
+                </motion.button>
               </form>
             )}
 
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -92,7 +99,13 @@ export default function CTAFooter() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14 text-left">
             
             {/* Column 1: Brand Info & Socials */}
-            <div className="space-y-5">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.0, ease: 'easeOut' }}
+              className="space-y-5"
+            >
               <div className="text-2xl sm:text-3xl font-black tracking-tight">
                 <span className="text-[#A78BFA]">Drop</span>
                 <span className="text-[#7C3AED]">Tools</span>
@@ -132,10 +145,16 @@ export default function CTAFooter() {
                   <span className="text-xs font-black">𝕏</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
 
             {/* Column 2: Quick Links */}
-            <div className="space-y-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
+              className="space-y-4"
+            >
               <h3 className="text-base sm:text-lg font-bold text-gray-950 tracking-tight">
                 Quick Links
               </h3>
@@ -161,10 +180,16 @@ export default function CTAFooter() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* Column 3: Company */}
-            <div className="space-y-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.2, ease: 'easeOut' }}
+              className="space-y-4"
+            >
               <h3 className="text-base sm:text-lg font-bold text-gray-950 tracking-tight">
                 Company
               </h3>
@@ -190,10 +215,16 @@ export default function CTAFooter() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
             {/* Column 4: Contact Us Info */}
-            <div className="space-y-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.3, ease: 'easeOut' }}
+              className="space-y-4"
+            >
               <h3 className="text-base sm:text-lg font-bold text-gray-950 tracking-tight">
                 Contact Us
               </h3>
@@ -211,7 +242,7 @@ export default function CTAFooter() {
                   <span>819 Los Angeles, CA</span>
                 </li>
               </ul>
-            </div>
+            </motion.div>
 
           </div>
 

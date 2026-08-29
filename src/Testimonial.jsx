@@ -1,5 +1,6 @@
 import React from 'react';
 import { Quote } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 /**
  * Testimonial Component for DropTools
@@ -34,42 +35,55 @@ export default function Testimonial() {
     >
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center">
         
-        {/* 1. Small centered label */}
-        <span
-          id="testimonial-subheading-label"
-          className="text-base sm:text-lg font-bold text-gray-950 tracking-normal mb-3"
+        {/* Section Heading & Subtext with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="flex flex-col items-center text-center"
         >
-          Testimonial
-        </span>
+          {/* 1. Small centered label */}
+          <span
+            id="testimonial-subheading-label"
+            className="text-base sm:text-lg font-bold text-gray-950 tracking-normal mb-3"
+          >
+            Testimonial
+          </span>
 
-        {/* 2. Large centered heading */}
-        <h2
-          id="testimonial-heading"
-          className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-tight max-w-3xl mb-4"
-        >
-          <span>Customer </span>
-          <span className="text-[#A78BFA]">Experiences</span>
-          <span> With</span>
-          <span className="block mt-1 sm:mt-2">Our Platform</span>
-        </h2>
+          {/* 2. Large centered heading */}
+          <h2
+            id="testimonial-heading"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-tight max-w-3xl mb-4"
+          >
+            <span>Customer </span>
+            <span className="text-[#A78BFA]">Experiences</span>
+            <span> With</span>
+            <span className="block mt-1 sm:mt-2">Our Platform</span>
+          </h2>
 
-        {/* 3. Centered subtext paragraph */}
-        <p
-          id="testimonial-subtext"
-          className="text-gray-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-14 sm:mb-16 font-normal"
-        >
-          See how our platform has helped businesses improve efficiency and achieve success. Real testimonials from satisfied customers who trust our solution.
-        </p>
+          {/* 3. Centered subtext paragraph */}
+          <p
+            id="testimonial-subtext"
+            className="text-gray-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-14 sm:mb-16 font-normal"
+          >
+            See how our platform has helped businesses improve efficiency and achieve success. Real testimonials from satisfied customers who trust our solution.
+          </p>
+        </motion.div>
 
-        {/* 4. 2-column grid of testimonial cards */}
+        {/* 4. 2-column grid of testimonial cards with staggered motion */}
         <div
           id="testimonial-grid"
           className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full text-left"
         >
-          {testimonials.map((item) => (
-            <div
+          {testimonials.map((item, index) => (
+            <motion.div
               key={item.id}
               id={item.id}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.15, ease: 'easeOut' }}
               className="bg-[#F3EFFF] rounded-2xl p-8 sm:p-10 flex flex-col justify-between transition-all duration-200 hover:shadow-md"
             >
               <div>
@@ -107,7 +121,7 @@ export default function Testimonial() {
                 </div>
               </div>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 

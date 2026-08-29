@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 /**
  * FeatureShowcase Component for DropTools
@@ -8,7 +9,7 @@ export default function FeatureShowcase() {
   return (
     <section 
       id="features" 
-      className="w-full bg-white py-16 sm:py-24 px-6 sm:px-12 selection:bg-purple-200 selection:text-purple-900"
+      className="w-full bg-white py-16 sm:py-24 px-6 sm:px-12 selection:bg-purple-200 selection:text-purple-900 overflow-hidden"
     >
       <div className="max-w-6xl mx-auto flex flex-col space-y-20 sm:space-y-28">
         
@@ -19,8 +20,14 @@ export default function FeatureShowcase() {
           id="feature-row-1" 
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Left Column: Content */}
-          <div className="flex flex-col items-start text-left max-w-xl">
+          {/* Left Column: Content (Slides from Left) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="flex flex-col items-start text-left max-w-xl"
+          >
             {/* Purple Pill Badge */}
             <span 
               id="badge-product-launch"
@@ -43,10 +50,16 @@ export default function FeatureShowcase() {
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed font-normal">
               Launch your product with ease using our all-in-one tool designed for success, Streamline every step, from planning to execution, and engage your audience effortlessly.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Server Room / Data Center Image with Partner Logos */}
-          <div className="w-full relative rounded-2xl overflow-hidden shadow-md group">
+          {/* Right Column: Server Room / Data Center Image (Slides from Right) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="w-full relative rounded-2xl overflow-hidden shadow-md group"
+          >
             <div className="relative aspect-[16/10] sm:aspect-[16/11] w-full bg-slate-900 overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=1200&q=80" 
@@ -69,7 +82,7 @@ export default function FeatureShowcase() {
                 <span className="font-black text-gray-800 tracking-wider">EMC</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* ========================================================================= */}
@@ -79,8 +92,14 @@ export default function FeatureShowcase() {
           id="feature-row-2" 
           className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center"
         >
-          {/* Left Column: Library / Bookshelf Research Image */}
-          <div className="w-full rounded-2xl overflow-hidden shadow-md order-2 lg:order-1 group">
+          {/* Left Column: Library / Bookshelf Research Image (Slides from Left) */}
+          <motion.div 
+            initial={{ opacity: 0, x: -35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="w-full rounded-2xl overflow-hidden shadow-md order-2 lg:order-1 group"
+          >
             <div className="relative aspect-[16/11] sm:aspect-[4/3] w-full bg-slate-100 overflow-hidden">
               <img 
                 src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80" 
@@ -92,10 +111,16 @@ export default function FeatureShowcase() {
               {/* Subtle aesthetic tint */}
               <div className="absolute inset-0 bg-purple-900/5 pointer-events-none" />
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Content */}
-          <div className="flex flex-col items-start text-left max-w-xl order-1 lg:order-2">
+          {/* Right Column: Content (Slides from Right) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 35 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, ease: 'easeOut' }}
+            className="flex flex-col items-start text-left max-w-xl order-1 lg:order-2"
+          >
             {/* Purple Pill Badge */}
             <span 
               id="badge-revenue-generation"
@@ -118,20 +143,22 @@ export default function FeatureShowcase() {
             <p className="text-gray-500 text-sm sm:text-base leading-relaxed font-normal">
               Launch your product with ease using our all-in-one tool designed for success, Streamline every step, from planning to execution, and engage your audience effortlessly.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* ========================================================================= */}
         {/* Bottom Centered Action Button */}
         {/* ========================================================================= */}
         <div id="features-cta" className="flex justify-center items-center pt-4 sm:pt-6">
-          <button 
+          <motion.button 
             id="btn-features-get-started"
-            className="bg-[#A78BFA] hover:bg-[#936bf7] text-white font-bold px-9 py-3.5 sm:py-4 rounded-full text-base sm:text-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-150 active:scale-[0.98] cursor-pointer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="bg-[#A78BFA] hover:bg-[#936bf7] text-white font-bold px-9 py-3.5 sm:py-4 rounded-full text-base sm:text-lg flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-150 cursor-pointer"
           >
             <span>Get Started</span>
             <span className="text-xl leading-none select-none">→</span>
-          </button>
+          </motion.button>
         </div>
 
       </div>

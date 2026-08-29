@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 
 /**
  * Hero Component for DropTools
@@ -172,48 +173,61 @@ export default function Hero() {
         
         <div className="space-y-8 max-w-5xl mx-auto">
           {/* Large Centered Bold Heading */}
-          <h1 
+          <motion.h1 
             id="hero-heading"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
             className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-gray-900 leading-[1.1] max-w-4xl mx-auto"
           >
             <span>Boost Your </span>
             <span className="text-[#7C3AED]">Productivity</span>
             <span className="block mt-1 sm:mt-2">With Our Smart Drop Tools</span>
-          </h1>
+          </motion.h1>
 
           {/* Centered Subtext Paragraph */}
-          <p 
+          <motion.p 
             id="hero-subtext"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.25, ease: 'easeOut' }}
             className="text-lg sm:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed font-normal"
           >
             Ready to experience the future of work? Sign up for a free trial and see how our Drop solution can transform your business. No commitment, just results.
-          </p>
+          </motion.p>
 
           {/* Centered Row of Action Buttons */}
-          <div 
+          <motion.div 
             id="hero-cta-buttons"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
             className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 pt-4 w-full sm:w-auto"
           >
             {/* Solid purple button */}
-            <button 
+            <motion.button 
               id="btn-get-started"
-              className="w-full sm:w-auto bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-150 active:scale-[0.98] cursor-pointer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-auto bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-bold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all duration-150 cursor-pointer"
             >
               <span>Get Started</span>
               <span className="text-xl leading-none select-none">→</span>
-            </button>
+            </motion.button>
 
             {/* Outlined purple button */}
-            <button 
+            <motion.button 
               id="btn-get-demo"
-              className="w-full sm:w-auto bg-white text-[#7C3AED] border-2 border-[#7C3AED] hover:bg-[#F3EFFF] font-bold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg flex items-center justify-center gap-3 transition-all duration-150 active:scale-[0.98] cursor-pointer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full sm:w-auto bg-white text-[#7C3AED] border-2 border-[#7C3AED] hover:bg-[#F3EFFF] font-bold px-8 sm:px-10 py-3.5 sm:py-4 rounded-full text-base sm:text-lg flex items-center justify-center gap-3 transition-all duration-150 cursor-pointer"
             >
               <span>Get Demo</span>
               <div className="w-6 h-6 rounded-full bg-[#7C3AED] flex items-center justify-center shadow-xs">
                 <span className="text-white text-[10px] ml-0.5 select-none">▶</span>
               </div>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
 
       </main>

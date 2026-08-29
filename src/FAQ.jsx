@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 /**
  * FAQ Component for DropTools
@@ -43,32 +43,45 @@ export default function FAQ() {
     >
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
         
-        {/* 1. Small centered label */}
-        <span
-          id="faq-subheading-label"
-          className="text-base sm:text-lg font-bold text-gray-950 tracking-normal mb-3"
+        {/* Section Heading with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="flex flex-col items-center text-center"
         >
-          Frequently Answer Questions
-        </span>
+          {/* 1. Small centered label */}
+          <span
+            id="faq-subheading-label"
+            className="text-base sm:text-lg font-bold text-gray-950 tracking-normal mb-3"
+          >
+            Frequently Answer Questions
+          </span>
 
-        {/* 2. Large centered heading */}
-        <h2
-          id="faq-heading"
-          className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-tight max-w-3xl mb-12 sm:mb-16"
-        >
-          <span>Common Queries </span>
-          <span className="text-[#A78BFA]">Solved,</span>
-          <span className="block mt-1 sm:mt-2">Quick Answers For You</span>
-        </h2>
+          {/* 2. Large centered heading */}
+          <h2
+            id="faq-heading"
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-950 tracking-tight leading-tight max-w-3xl mb-12 sm:mb-16"
+          >
+            <span>Common Queries </span>
+            <span className="text-[#A78BFA]">Solved,</span>
+            <span className="block mt-1 sm:mt-2">Quick Answers For You</span>
+          </h2>
+        </motion.div>
 
-        {/* 3. Stack of accordion items */}
+        {/* 3. Stack of accordion items with staggered scroll animations */}
         <div id="faq-accordion-list" className="w-full space-y-4 sm:space-y-5 text-left">
           {faqItems.map((item, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
+              <motion.div
                 key={item.id}
                 id={item.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.1, ease: 'easeOut' }}
                 className="w-full bg-[#A78BFA] hover:bg-[#9E80F5] transition-colors rounded-2xl p-5 sm:p-6 shadow-xs select-none cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
@@ -107,7 +120,7 @@ export default function FAQ() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             );
           })}
         </div>
